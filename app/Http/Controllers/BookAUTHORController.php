@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreBookAUTHORRequest;
-use App\Http\Requests\UpdateBookAUTHORRequest;
+use App\Http\Requests\StoreBookAuthorRequest;
+use App\Http\Requests\UpdateBookAuthorRequest;
 use App\Models\BookAuthor;
 
 class BookAUTHORController extends Controller
@@ -31,10 +31,10 @@ class BookAUTHORController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreBookAUTHORRequest  $request
+     * @param  \App\Http\Requests\StoreBookAuthorRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreBookAUTHORRequest $request)
+    public function store(StoreBookAuthorRequest $request)
     {
         //
     }
@@ -64,11 +64,11 @@ class BookAUTHORController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateBookAUTHORRequest  $request
+     * @param  \App\Http\Requests\UpdateBookAuthorRequest  $request
      * @param  \App\Models\BookAuthor  $bookAUTHOR
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateBookAUTHORRequest $request, BookAuthor $bookAUTHOR)
+    public function update(UpdateBookAuthorRequest $request, BookAuthor $bookAUTHOR)
     {
         //
     }
