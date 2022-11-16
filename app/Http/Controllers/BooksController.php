@@ -56,7 +56,9 @@ class BooksController extends Controller
      */
     public function show(Book $book)
     {
-        return $book->author();
+        return new BooksResource($book);
+      //  dd($book->authors());
+        return $book->authors();
     }
 
     /**

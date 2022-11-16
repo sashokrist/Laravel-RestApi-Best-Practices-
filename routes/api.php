@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\UserAuthController;
 use App\Http\Controllers\AuthorsController;
 use App\Http\Controllers\BooksController;
 use Illuminate\Http\Request;
@@ -25,3 +26,22 @@ Route::middleware('auth:api')->prefix('v1')->group(function (){
 
 });
 
+Route::post('/register', [ UserAuthController::class, 'register']);
+Route::post('/login', [ UserAuthController::class, 'login']);
+Route::get('/authorize', [ UserAuthController::class, 'loginForm']);
+
+
+Route::get('/redirect', function (Request $request) {
+    $request->session()->put('state', $state = Str::random(40));
+
+    $query = http_build_query([
+        'client_id' => 'client-id',
+        'redirect_uri' => 'http://bookstore.test/api/v1/callback',
+        'response_type' => 'code',
+        'scope' => '',
+        'state' => '$state',
+        // 'prompt' => '', // "none", "consent", or "login"
+    ]);
+
+    return redirect('http://bookstore.test/oauth/authorize?'.$query);
+});
